@@ -1,0 +1,742 @@
+
+Incident Identifier: DF2A3486-98A8-41A5-AC76-C9D9D66B0ED8
+Beta Identifier:     8732B293-53C3-417D-A283-97F32E76A044
+Hardware Model:      iPhone14,7
+Process:             Planon Live [12268]
+Path:                /private/var/containers/Bundle/Application/6635E9E4-D50F-4201-92E3-2C49FFC64C26/Planon Live.app/Planon Live
+Identifier:          com.planonsoftware.mobileplatform
+Version:             3.1.8 (1695914471)
+AppStoreTools:       15A240a
+AppVariant:          1:iPhone14,7:16
+Beta:                YES
+Code Type:           ARM-64 (Native)
+Role:                Foreground
+Parent Process:      launchd [1]
+Coalition:           com.planonsoftware.mobileplatform [695]
+
+Date/Time:           2023-10-03 14:51:50.5502 +0530
+Launch Time:         2023-10-03 14:45:42.5807 +0530
+OS Version:          iPhone OS 16.5.1 (20F770750d)
+Release Type:        User
+Baseband Version:    1.70.02
+Report Version:      104
+
+Exception Type:  EXC_BAD_ACCESS (SIGSEGV)
+Exception Subtype: KERN_PROTECTION_FAILURE at 0x000000016f363ff8
+Exception Codes: 0x0000000000000002, 0x000000016f363ff8
+VM Region Info: 0x16f363ff8 is in 0x16f360000-0x16f364000;  bytes after start: 16376  bytes before end: 7
+      REGION TYPE                 START - END      [ VSIZE] PRT/MAX SHRMOD  REGION DETAIL
+      mapped file              14c57c000-14d034000 [ 10.7M] r--/r-- SM=S/A  ...t_id=e269fc4f
+      GAP OF 0x2232c000 BYTES
+--->  STACK GUARD              16f360000-16f364000 [   16K] ---/rwx SM=NUL  ... for thread 0
+      Stack                    16f364000-16f460000 [ 1008K] rw-/rwx SM=PRV  thread 0
+Termination Reason: SIGNAL 11 Segmentation fault: 11
+Terminating Process: exc handler [12268]
+
+Triggered by Thread:  0
+
+Thread 0 name:   Dispatch queue: com.apple.main-thread
+Thread 0 Crashed:
+0   libsystem_pthread.dylib       	       0x1f7aacbc8 ___chkstk_darwin + 60
+1   CoreText                      	       0x1995ee2d8 TOpenTypeMorph::ShapeGlyphs(SyncState&) + 48
+2   CoreText                      	       0x19965da60 TShapingEngine::ShapeGlyphs(TRunGlue&, __CFString const*, std::__1::optional<ScriptAndLangSys>*, TCharStream const*) + 364
+3   CoreText                      	       0x1995ed840 CTFontShapeGlyphs + 672
+4   WebCore                       	       0x1a9daaf88 WebCore::Font::applyTransforms(WebCore::GlyphBuffer&, unsigned int, unsigned int, bool, bool, WTF::AtomString const&, WTF::StringView, WebCore::TextDirection) const + 700
+5   WebCore                       	       0x1a9d23ff4 WebCore::WidthIterator::commitCurrentFontRange(WebCore::GlyphBuffer&, unsigned int&, unsigned int, WebCore::Font const*&, WebCore::Font const&, WebCore::Font const&, int, float&, float, WTF::Vector<WebCore::OriginalAdvancesForCharacterTreatedAsSpace, 64ul, WTF::CrashOnOverflow, 16ul, WTF::FastMalloc>&) + 252
+6   WebCore                       	       0x1a9d25230 WebCore::WidthIterator::advance(unsigned int, WebCore::GlyphBuffer&) + 3092
+7   WebCore                       	       0x1a9cc1678 WebCore::FontCascade::adjustSelectionRectForSimpleText(WebCore::TextRun const&, WebCore::LayoutRect&, unsigned int, unsigned int) const + 324
+8   WebCore                       	       0x1a99b5db4 WebCore::InlineIterator::TextBox::positionForOffset(unsigned int) const + 932
+9   WebCore                       	       0x1a9eb127c WebCore::computeCaretRectForText(WebCore::InlineBoxAndOffset const&, WebCore::CaretRectMode) + 108
+10  WebCore                       	       0x1a9eb104c WebCore::computeLocalCaretRect(WebCore::RenderObject const&, WebCore::InlineBoxAndOffset const&, WebCore::CaretRectMode) + 188
+11  WebCore                       	       0x1a9600824 WebCore::VisiblePosition::localCaretRect() const + 140
+12  WebCore                       	       0x1a9600904 WebCore::VisiblePosition::absoluteCaretBounds(bool*) const + 68
+13  WebKitLegacy                  	       0x1e12172d0 -[WebFrame(WebFrameIOS) caretRectForPosition:] + 72
+14  UIKitCore                     	       0x19ae43050 -[DOMNode(UITextInputAdditions) caretRectForPosition:] + 80
+15  CoreFoundation                	       0x197d91c04 __invoking___ + 148
+16  CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+17  CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+18  UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+19  CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+20  CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+21  UIKitCore                     	       0x199fbeb7c -[UITextSelection caretRect] + 108
+22  UIKitCore                     	       0x199fbd580 -[UITextSelectionView updateSelectionRects] + 1240
+23  CoreFoundation                	       0x197d91c04 __invoking___ + 148
+24  CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+25  CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+26  WebKitLegacy                  	       0x1e120cc10 -[_WebSafeForwarder forwardInvocation:] + 120
+27  CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+28  CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+29  WebCore                       	       0x1a9598054 WebCore::FrameSelection::revealSelection(WebCore::SelectionRevealMode, WebCore::ScrollAlignment const&, WebCore::RevealExtentOption, WebCore::ScrollBehavior) + 696
+30  WebCore                       	       0x1a95b034c WebCore::SetCompositionScope::~SetCompositionScope() + 92
+31  WebCore                       	       0x1a9593034 WebCore::Editor::setComposition(WTF::String const&, WTF::Vector<WebCore::CompositionUnderline, 0ul, WTF::CrashOnOverflow, 16ul, WTF::FastMalloc> const&, WTF::Vector<WebCore::CompositionHighlight, 0ul, WTF::CrashOnOverflow, 16ul, WTF::FastMalloc> const&, unsigned int, unsigned int) + 4588
+32  WebKitLegacy                  	       0x1e1213a54 -[WebFrame(WebPrivate) setMarkedText:selectedRange:] + 172
+33  UIKitCore                     	       0x19ae416bc -[DOMNode(UITextInputAdditions) setMarkedText:selectedRange:] + 104
+34  UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+35  CoreFoundation                	       0x197d91c04 __invoking___ + 148
+36  CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+37  CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+38  UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+39  CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+40  CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+41  UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+42  UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+43  UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+44  UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+45  UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+46  UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+47  UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+48  UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+49  UIKitCore                     	       0x19a15b9ac -[UIKeyboardTaskEntry execute:] + 208
+50  UIKitCore                     	       0x19a15b890 -[UIKeyboardTaskQueue continueExecutionOnMainThread] + 304
+51  UIKitCore                     	       0x19a15b6a0 -[UIKeyboardTaskQueue performTaskOnMainThread:waitUntilDone:] + 284
+52  UIKitCore                     	       0x19a975b24 -[UIKeyboardTaskQueue performTask:] + 80
+53  UIKitCore                     	       0x19a923d14 -[UIKeyboardImpl generateAutofillCandidateByAddingTask:] + 200
+54  UIKitCore                     	       0x19a2ba604 -[UIKeyboardImpl selectionDidChange:] + 996
+55  UIKitCore                     	       0x19a92fa68 -[UIKeyboardImpl textDidChange:] + 116
+56  UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+57  CoreFoundation                	       0x197d91c04 __invoking___ + 148
+58  CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+59  CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+60  UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+61  CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+62  CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+63  UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+64  UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+65  UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+66  UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+67  UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+68  UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+69  UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+70  UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+71  UIKitCore                     	       0x19a15b9ac -[UIKeyboardTaskEntry execute:] + 208
+72  UIKitCore                     	       0x19a15b890 -[UIKeyboardTaskQueue continueExecutionOnMainThread] + 304
+73  UIKitCore                     	       0x19a15b6a0 -[UIKeyboardTaskQueue performTaskOnMainThread:waitUntilDone:] + 284
+74  UIKitCore                     	       0x19a975b24 -[UIKeyboardTaskQueue performTask:] + 80
+75  UIKitCore                     	       0x19a923d14 -[UIKeyboardImpl generateAutofillCandidateByAddingTask:] + 200
+76  UIKitCore                     	       0x19a2ba604 -[UIKeyboardImpl selectionDidChange:] + 996
+77  UIKitCore                     	       0x19a92fa68 -[UIKeyboardImpl textDidChange:] + 116
+78  UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+79  CoreFoundation                	       0x197d91c04 __invoking___ + 148
+80  CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+81  CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+82  UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+83  CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+84  CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+85  UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+86  UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+87  UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+88  UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+89  UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+90  UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+91  UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+92  UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+93  UIKitCore                     	       0x19a15b9ac -[UIKeyboardTaskEntry execute:] + 208
+94  UIKitCore                     	       0x19a15b890 -[UIKeyboardTaskQueue continueExecutionOnMainThread] + 304
+95  UIKitCore                     	       0x19a15b6a0 -[UIKeyboardTaskQueue performTaskOnMainThread:waitUntilDone:] + 284
+96  UIKitCore                     	       0x19a975b24 -[UIKeyboardTaskQueue performTask:] + 80
+97  UIKitCore                     	       0x19a923d14 -[UIKeyboardImpl generateAutofillCandidateByAddingTask:] + 200
+98  UIKitCore                     	       0x19a2ba604 -[UIKeyboardImpl selectionDidChange:] + 996
+99  UIKitCore                     	       0x19a92fa68 -[UIKeyboardImpl textDidChange:] + 116
+100 UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+101 CoreFoundation                	       0x197d91c04 __invoking___ + 148
+102 CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+103 CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+104 UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+105 CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+106 CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+107 UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+108 UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+109 UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+110 UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+111 UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+112 UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+113 UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+114 UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+115 UIKitCore                     	       0x19a15b9ac -[UIKeyboardTaskEntry execute:] + 208
+116 UIKitCore                     	       0x19a15b890 -[UIKeyboardTaskQueue continueExecutionOnMainThread] + 304
+117 UIKitCore                     	       0x19a15b6a0 -[UIKeyboardTaskQueue performTaskOnMainThread:waitUntilDone:] + 284
+118 UIKitCore                     	       0x19a975b24 -[UIKeyboardTaskQueue performTask:] + 80
+119 UIKitCore                     	       0x19a923d14 -[UIKeyboardImpl generateAutofillCandidateByAddingTask:] + 200
+120 UIKitCore                     	       0x19a2ba604 -[UIKeyboardImpl selectionDidChange:] + 996
+121 UIKitCore                     	       0x19a92fa68 -[UIKeyboardImpl textDidChange:] + 116
+122 UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+123 CoreFoundation                	       0x197d91c04 __invoking___ + 148
+124 CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+125 CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+126 UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+127 CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+128 CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+129 UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+130 UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+131 UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+132 UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+133 UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+134 UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+135 UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+136 UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+137 UIKitCore                     	       0x19a15b9ac -[UIKeyboardTaskEntry execute:] + 208
+138 UIKitCore                     	       0x19a15b890 -[UIKeyboardTaskQueue continueExecutionOnMainThread] + 304
+139 UIKitCore                     	       0x19a15b6a0 -[UIKeyboardTaskQueue performTaskOnMainThread:waitUntilDone:] + 284
+140 UIKitCore                     	       0x19a975b24 -[UIKeyboardTaskQueue performTask:] + 80
+141 UIKitCore                     	       0x19a923d14 -[UIKeyboardImpl generateAutofillCandidateByAddingTask:] + 200
+142 UIKitCore                     	       0x19a2ba604 -[UIKeyboardImpl selectionDidChange:] + 996
+143 UIKitCore                     	       0x19a92fa68 -[UIKeyboardImpl textDidChange:] + 116
+144 UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+145 CoreFoundation                	       0x197d91c04 __invoking___ + 148
+146 CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+147 CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+148 UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+149 CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+150 CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+151 UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+152 UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+153 UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+154 UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+155 UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+156 UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+157 UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+158 UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+159 UIKitCore                     	       0x19a15b9ac -[UIKeyboardTaskEntry execute:] + 208
+160 UIKitCore                     	       0x19a15b890 -[UIKeyboardTaskQueue continueExecutionOnMainThread] + 304
+161 UIKitCore                     	       0x19a15b6a0 -[UIKeyboardTaskQueue performTaskOnMainThread:waitUntilDone:] + 284
+162 UIKitCore                     	       0x19a975b24 -[UIKeyboardTaskQueue performTask:] + 80
+163 UIKitCore                     	       0x19a923d14 -[UIKeyboardImpl generateAutofillCandidateByAddingTask:] + 200
+164 UIKitCore                     	       0x19a2ba604 -[UIKeyboardImpl selectionDidChange:] + 996
+165 UIKitCore                     	       0x19a92fa68 -[UIKeyboardImpl textDidChange:] + 116
+166 UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+167 CoreFoundation                	       0x197d91c04 __invoking___ + 148
+168 CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+169 CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+170 UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+171 CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+172 CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+173 UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+174 UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+175 UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+176 UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+177 UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+178 UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+179 UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+180 UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+181 UIKitCore                     	       0x19a15b9ac -[UIKeyboardTaskEntry execute:] + 208
+182 UIKitCore                     	       0x19a15b890 -[UIKeyboardTaskQueue continueExecutionOnMainThread] + 304
+183 UIKitCore                     	       0x19a15b6a0 -[UIKeyboardTaskQueue performTaskOnMainThread:waitUntilDone:] + 284
+184 UIKitCore                     	       0x19a975b24 -[UIKeyboardTaskQueue performTask:] + 80
+185 UIKitCore                     	       0x19a923d14 -[UIKeyboardImpl generateAutofillCandidateByAddingTask:] + 200
+186 UIKitCore                     	       0x19a2ba604 -[UIKeyboardImpl selectionDidChange:] + 996
+187 UIKitCore                     	       0x19a92fa68 -[UIKeyboardImpl textDidChange:] + 116
+188 UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+189 CoreFoundation                	       0x197d91c04 __invoking___ + 148
+190 CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+191 CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+192 UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+193 CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+194 CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+195 UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+196 UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+197 UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+198 UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+199 UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+200 UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+201 UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+202 UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+203 UIKitCore                     	       0x19a15b9ac -[UIKeyboardTaskEntry execute:] + 208
+204 UIKitCore                     	       0x19a15b890 -[UIKeyboardTaskQueue continueExecutionOnMainThread] + 304
+205 UIKitCore                     	       0x19a15b6a0 -[UIKeyboardTaskQueue performTaskOnMainThread:waitUntilDone:] + 284
+206 UIKitCore                     	       0x19a975b24 -[UIKeyboardTaskQueue performTask:] + 80
+207 UIKitCore                     	       0x19a923d14 -[UIKeyboardImpl generateAutofillCandidateByAddingTask:] + 200
+208 UIKitCore                     	       0x19a2ba604 -[UIKeyboardImpl selectionDidChange:] + 996
+209 UIKitCore                     	       0x19a92fa68 -[UIKeyboardImpl textDidChange:] + 116
+210 UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+211 CoreFoundation                	       0x197d91c04 __invoking___ + 148
+212 CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+213 CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+214 UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+215 CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+216 CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+217 UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+218 UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+219 UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+220 UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+221 UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+222 UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+223 UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+224 UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+225 UIKitCore                     	       0x19a15b9ac -[UIKeyboardTaskEntry execute:] + 208
+226 UIKitCore                     	       0x19a15b890 -[UIKeyboardTaskQueue continueExecutionOnMainThread] + 304
+227 UIKitCore                     	       0x19a15b6a0 -[UIKeyboardTaskQueue performTaskOnMainThread:waitUntilDone:] + 284
+228 UIKitCore                     	       0x19a975b24 -[UIKeyboardTaskQueue performTask:] + 80
+229 UIKitCore                     	       0x19a923d14 -[UIKeyboardImpl generateAutofillCandidateByAddingTask:] + 200
+230 UIKitCore                     	       0x19a2ba604 -[UIKeyboardImpl selectionDidChange:] + 996
+231 UIKitCore                     	       0x19a92fa68 -[UIKeyboardImpl textDidChange:] + 116
+232 UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+233 CoreFoundation                	       0x197d91c04 __invoking___ + 148
+234 CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+235 CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+236 UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+237 CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+238 CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+239 UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+240 UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+241 UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+242 UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+243 UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+244 UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+245 UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+246 UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+247 UIKitCore                     	       0x19a15b9ac -[UIKeyboardTaskEntry execute:] + 208
+248 UIKitCore                     	       0x19a15b890 -[UIKeyboardTaskQueue continueExecutionOnMainThread] + 304
+249 UIKitCore                     	       0x19a15b6a0 -[UIKeyboardTaskQueue performTaskOnMainThread:waitUntilDone:] + 284
+250 UIKitCore                     	       0x19a975b24 -[UIKeyboardTaskQueue performTask:] + 80
+251 UIKitCore                     	       0x19a923d14 -[UIKeyboardImpl generateAutofillCandidateByAddingTask:] + 200
+252 UIKitCore                     	       0x19a2ba604 -[UIKeyboardImpl selectionDidChange:] + 996
+253 UIKitCore                     	       0x19a92fa68 -[UIKeyboardImpl textDidChange:] + 116
+254 UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+255 CoreFoundation                	       0x197d91c04 __invoking___ + 148
+256 CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+257 CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+258 UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+259 CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+260 CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+261 UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+262 UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+263 UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+264 UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+265 UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+266 UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+267 UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+268 UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+269 UIKitCore                     	       0x19a15b9ac -[UIKeyboardTaskEntry execute:] + 208
+270 UIKitCore                     	       0x19a15b890 -[UIKeyboardTaskQueue continueExecutionOnMainThread] + 304
+271 UIKitCore                     	       0x19a15b6a0 -[UIKeyboardTaskQueue performTaskOnMainThread:waitUntilDone:] + 284
+272 UIKitCore                     	       0x19a975b24 -[UIKeyboardTaskQueue performTask:] + 80
+273 UIKitCore                     	       0x19a923d14 -[UIKeyboardImpl generateAutofillCandidateByAddingTask:] + 200
+274 UIKitCore                     	       0x19a2ba604 -[UIKeyboardImpl selectionDidChange:] + 996
+275 UIKitCore                     	       0x19a92fa68 -[UIKeyboardImpl textDidChange:] + 116
+276 UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+277 CoreFoundation                	       0x197d91c04 __invoking___ + 148
+278 CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+279 CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+280 UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+281 CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+282 CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+283 UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+284 UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+285 UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+286 UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+287 UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+288 UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+289 UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+290 UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+291 UIKitCore                     	       0x19a15b9ac -[UIKeyboardTaskEntry execute:] + 208
+292 UIKitCore                     	       0x19a15b890 -[UIKeyboardTaskQueue continueExecutionOnMainThread] + 304
+293 UIKitCore                     	       0x19a15b6a0 -[UIKeyboardTaskQueue performTaskOnMainThread:waitUntilDone:] + 284
+294 UIKitCore                     	       0x19a975b24 -[UIKeyboardTaskQueue performTask:] + 80
+295 UIKitCore                     	       0x19a923d14 -[UIKeyboardImpl generateAutofillCandidateByAddingTask:] + 200
+296 UIKitCore                     	       0x19a2ba604 -[UIKeyboardImpl selectionDidChange:] + 996
+297 UIKitCore                     	       0x19a92fa68 -[UIKeyboardImpl textDidChange:] + 116
+298 UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+299 CoreFoundation                	       0x197d91c04 __invoking___ + 148
+300 CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+301 CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+302 UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+303 CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+304 CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+305 UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+306 UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+307 UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+308 UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+309 UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+310 UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+311 UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+312 UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+313 UIKitCore                     	       0x19a15b9ac -[UIKeyboardTaskEntry execute:] + 208
+314 UIKitCore                     	       0x19a15b890 -[UIKeyboardTaskQueue continueExecutionOnMainThread] + 304
+315 UIKitCore                     	       0x19a15b6a0 -[UIKeyboardTaskQueue performTaskOnMainThread:waitUntilDone:] + 284
+316 UIKitCore                     	       0x19a975b24 -[UIKeyboardTaskQueue performTask:] + 80
+317 UIKitCore                     	       0x19a923d14 -[UIKeyboardImpl generateAutofillCandidateByAddingTask:] + 200
+318 UIKitCore                     	       0x19a2ba604 -[UIKeyboardImpl selectionDidChange:] + 996
+319 UIKitCore                     	       0x19a92fa68 -[UIKeyboardImpl textDidChange:] + 116
+320 UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+321 CoreFoundation                	       0x197d91c04 __invoking___ + 148
+322 CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+323 CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+324 UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+325 CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+326 CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+327 UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+328 UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+329 UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+330 UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+331 UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+332 UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+333 UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+334 UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+335 UIKitCore                     	       0x19a15b9ac -[UIKeyboardTaskEntry execute:] + 208
+336 UIKitCore                     	       0x19a15b890 -[UIKeyboardTaskQueue continueExecutionOnMainThread] + 304
+337 UIKitCore                     	       0x19a15b6a0 -[UIKeyboardTaskQueue performTaskOnMainThread:waitUntilDone:] + 284
+338 UIKitCore                     	       0x19a975b24 -[UIKeyboardTaskQueue performTask:] + 80
+339 UIKitCore                     	       0x19a923d14 -[UIKeyboardImpl generateAutofillCandidateByAddingTask:] + 200
+340 UIKitCore                     	       0x19a2ba604 -[UIKeyboardImpl selectionDidChange:] + 996
+341 UIKitCore                     	       0x19a92fa68 -[UIKeyboardImpl textDidChange:] + 116
+342 UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+343 CoreFoundation                	       0x197d91c04 __invoking___ + 148
+344 CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+345 CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+346 UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+347 CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+348 CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+349 UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+350 UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+351 UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+352 UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+353 UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+354 UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+355 UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+356 UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+357 UIKitCore                     	       0x19a15b9ac -[UIKeyboardTaskEntry execute:] + 208
+358 UIKitCore                     	       0x19a15b890 -[UIKeyboardTaskQueue continueExecutionOnMainThread] + 304
+359 UIKitCore                     	       0x19a15b6a0 -[UIKeyboardTaskQueue performTaskOnMainThread:waitUntilDone:] + 284
+360 UIKitCore                     	       0x19a975b24 -[UIKeyboardTaskQueue performTask:] + 80
+361 UIKitCore                     	       0x19a923d14 -[UIKeyboardImpl generateAutofillCandidateByAddingTask:] + 200
+362 UIKitCore                     	       0x19a2ba604 -[UIKeyboardImpl selectionDidChange:] + 996
+363 UIKitCore                     	       0x19a92fa68 -[UIKeyboardImpl textDidChange:] + 116
+364 UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+365 CoreFoundation                	       0x197d91c04 __invoking___ + 148
+366 CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+367 CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+368 UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+369 CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+370 CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+371 UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+372 UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+373 UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+374 UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+375 UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+376 UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+377 UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+378 UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+379 UIKitCore                     	       0x19a15b9ac -[UIKeyboardTaskEntry execute:] + 208
+380 UIKitCore                     	       0x19a15b890 -[UIKeyboardTaskQueue continueExecutionOnMainThread] + 304
+381 UIKitCore                     	       0x19a15b6a0 -[UIKeyboardTaskQueue performTaskOnMainThread:waitUntilDone:] + 284
+382 UIKitCore                     	       0x19a975b24 -[UIKeyboardTaskQueue performTask:] + 80
+383 UIKitCore                     	       0x19a923d14 -[UIKeyboardImpl generateAutofillCandidateByAddingTask:] + 200
+384 UIKitCore                     	       0x19a2ba604 -[UIKeyboardImpl selectionDidChange:] + 996
+385 UIKitCore                     	       0x19a92fa68 -[UIKeyboardImpl textDidChange:] + 116
+386 UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+387 CoreFoundation                	       0x197d91c04 __invoking___ + 148
+388 CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+389 CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+390 UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+391 CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+392 CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+393 UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+394 UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+395 UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+396 UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+397 UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+398 UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+399 UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+400 UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+401 UIKitCore                     	       0x19a15b9ac -[UIKeyboardTaskEntry execute:] + 208
+402 UIKitCore                     	       0x19a15b890 -[UIKeyboardTaskQueue continueExecutionOnMainThread] + 304
+403 UIKitCore                     	       0x19a15b6a0 -[UIKeyboardTaskQueue performTaskOnMainThread:waitUntilDone:] + 284
+404 UIKitCore                     	       0x19a975b24 -[UIKeyboardTaskQueue performTask:] + 80
+405 UIKitCore                     	       0x19a923d14 -[UIKeyboardImpl generateAutofillCandidateByAddingTask:] + 200
+406 UIKitCore                     	       0x19a2ba604 -[UIKeyboardImpl selectionDidChange:] + 996
+407 UIKitCore                     	       0x19a92fa68 -[UIKeyboardImpl textDidChange:] + 116
+408 UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+409 CoreFoundation                	       0x197d91c04 __invoking___ + 148
+410 CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+411 CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+412 UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+413 CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+414 CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+415 UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+416 UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+417 UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+418 UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+419 UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+420 UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+421 UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+422 UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+423 UIKitCore                     	       0x19a15b9ac -[UIKeyboardTaskEntry execute:] + 208
+424 UIKitCore                     	       0x19a15b890 -[UIKeyboardTaskQueue continueExecutionOnMainThread] + 304
+425 UIKitCore                     	       0x19a15b6a0 -[UIKeyboardTaskQueue performTaskOnMainThread:waitUntilDone:] + 284
+426 UIKitCore                     	       0x19a975b24 -[UIKeyboardTaskQueue performTask:] + 80
+427 UIKitCore                     	       0x19a923d14 -[UIKeyboardImpl generateAutofillCandidateByAddingTask:] + 200
+428 UIKitCore                     	       0x19a2ba604 -[UIKeyboardImpl selectionDidChange:] + 996
+429 UIKitCore                     	       0x19a92fa68 -[UIKeyboardImpl textDidChange:] + 116
+430 UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+431 CoreFoundation                	       0x197d91c04 __invoking___ + 148
+432 CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+433 CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+434 UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+435 CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+436 CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+437 UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+438 UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+439 UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+440 UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+441 UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+442 UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+443 UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+444 UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+445 UIKitCore                     	       0x19a15b9ac -[UIKeyboardTaskEntry execute:] + 208
+446 UIKitCore                     	       0x19a15b890 -[UIKeyboardTaskQueue continueExecutionOnMainThread] + 304
+447 UIKitCore                     	       0x19a15b6a0 -[UIKeyboardTaskQueue performTaskOnMainThread:waitUntilDone:] + 284
+448 UIKitCore                     	       0x19a975b24 -[UIKeyboardTaskQueue performTask:] + 80
+449 UIKitCore                     	       0x19a923d14 -[UIKeyboardImpl generateAutofillCandidateByAddingTask:] + 200
+450 UIKitCore                     	       0x19a2ba604 -[UIKeyboardImpl selectionDidChange:] + 996
+451 UIKitCore                     	       0x19a92fa68 -[UIKeyboardImpl textDidChange:] + 116
+452 UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+453 CoreFoundation                	       0x197d91c04 __invoking___ + 148
+454 CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+455 CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+456 UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+457 CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+458 CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+459 UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+460 UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+461 UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+462 UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+463 UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+464 UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+465 UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+466 UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+467 UIKitCore                     	       0x19a15b9ac -[UIKeyboardTaskEntry execute:] + 208
+468 UIKitCore                     	       0x19a15b890 -[UIKeyboardTaskQueue continueExecutionOnMainThread] + 304
+469 UIKitCore                     	       0x19a15b6a0 -[UIKeyboardTaskQueue performTaskOnMainThread:waitUntilDone:] + 284
+470 UIKitCore                     	       0x19a975b24 -[UIKeyboardTaskQueue performTask:] + 80
+471 UIKitCore                     	       0x19a923d14 -[UIKeyboardImpl generateAutofillCandidateByAddingTask:] + 200
+472 UIKitCore                     	       0x19a2ba604 -[UIKeyboardImpl selectionDidChange:] + 996
+473 UIKitCore                     	       0x19a92fa68 -[UIKeyboardImpl textDidChange:] + 116
+474 UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+475 CoreFoundation                	       0x197d91c04 __invoking___ + 148
+476 CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+477 CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+478 UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+479 CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+480 CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+481 UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+482 UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+483 UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+484 UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+485 UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+486 UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+487 UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+488 UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+489 UIKitCore                     	       0x19a15b9ac -[UIKeyboardTaskEntry execute:] + 208
+490 UIKitCore                     	       0x19a15b890 -[UIKeyboardTaskQueue continueExecutionOnMainThread] + 304
+491 UIKitCore                     	       0x19a15b6a0 -[UIKeyboardTaskQueue performTaskOnMainThread:waitUntilDone:] + 284
+492 UIKitCore                     	       0x19a975b24 -[UIKeyboardTaskQueue performTask:] + 80
+493 UIKitCore                     	       0x19a923d14 -[UIKeyboardImpl generateAutofillCandidateByAddingTask:] + 200
+494 UIKitCore                     	       0x19a2ba604 -[UIKeyboardImpl selectionDidChange:] + 996
+495 UIKitCore                     	       0x19a92fa68 -[UIKeyboardImpl textDidChange:] + 116
+496 UIKitCore                     	       0x19ae42848 -[DOMNode(UITextInputAdditions) replaceRange:withText:closeTyping:] + 68
+497 CoreFoundation                	       0x197d91c04 __invoking___ + 148
+498 CoreFoundation                	       0x197d3fcb4 -[NSInvocation invoke] + 428
+499 CoreFoundation                	       0x197d3f6cc -[NSInvocation invokeWithTarget:] + 64
+500 UIKitCore                     	       0x19ae244f4 -[UIThreadSafeNode forwardInvocation:] + 76
+501 CoreFoundation                	       0x197d3ee80 ___forwarding___ + 976
+502 CoreFoundation                	       0x197da5900 _CF_forwarding_prep_0 + 96
+503 UIKitCore                     	       0x19a6f3e8c -[UIKBInputDelegateManager replaceRange:oldText:withText:forReplaceAction:] + 188
+504 UIKitCore                     	       0x19a954ba8 -[UIKeyboardImpl applyAutocorrection:] + 1084
+505 UIKitCore                     	       0x19a948178 -[UIKeyboardImpl acceptAutocorrection:executionContextPassingTIKeyboardCandidate:] + 1172
+506 UIKitCore                     	       0x19a946bec -[UIKeyboardImpl acceptAutocorrectionForWordTerminator:executionContextPassingTIKeyboardCandidate:] + 308
+507 UIKitCore                     	       0x19a9463c8 -[UIKeyboardImpl addInputEvent:executionContext:] + 692
+508 UIKitCore                     	       0x19a94cdec -[UIKeyboardImpl acceptPredictiveInput:executionContext:] + 1148
+509 UIKitCore                     	       0x19a93edb4 -[UIKeyboardImpl inputManagerDidGenerateAutocorrections:forPredictiveInput:executionContext:] + 520
+510 UIKitCore                     	       0x19a93e8cc __61-[UIKeyboardImpl generateAutocorrectionWithExecutionContext:]_block_invoke_2 + 72
+
+Thread 1 name:  com.apple.uikit.eventfetch-thread
+Thread 1:
+0   libsystem_kernel.dylib        	       0x1d6c63c84 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x1d6c76b54 mach_msg2_internal + 80
+2   libsystem_kernel.dylib        	       0x1d6c76e2c mach_msg_overwrite + 540
+3   libsystem_kernel.dylib        	       0x1d6c641c8 mach_msg + 24
+4   CoreFoundation                	       0x197d98024 __CFRunLoopServiceMachPort + 160
+5   CoreFoundation                	       0x197d99250 __CFRunLoopRun + 1208
+6   CoreFoundation                	       0x197d9e3ec CFRunLoopRunSpecific + 612
+7   Foundation                    	       0x192026fd4 -[NSRunLoop(NSRunLoop) runMode:beforeDate:] + 212
+8   Foundation                    	       0x192026ebc -[NSRunLoop(NSRunLoop) runUntilDate:] + 64
+9   UIKitCore                     	       0x19a25e3fc -[UIEventFetcher threadMain] + 416
+10  Foundation                    	       0x192040544 __NSThread__start__ + 716
+11  libsystem_pthread.dylib       	       0x1f7aad6b8 _pthread_start + 148
+12  libsystem_pthread.dylib       	       0x1f7aacb88 thread_start + 8
+
+Thread 2 name:  WebThread
+Thread 2:
+0   libsystem_kernel.dylib        	       0x1d6c64558 __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x1f7ab4078 _pthread_cond_wait + 1232
+2   JavaScriptCore                	       0x1ab4a1a10 WTF::ParkingLot::parkConditionallyImpl(void const*, WTF::ScopedLambda<bool ()> const&, WTF::ScopedLambda<void ()> const&, WTF::TimeWithDynamicClockType const&) + 2220
+3   JavaScriptCore                	       0x1ab492090 WTF::LockAlgorithm<unsigned char, (unsigned char)1, (unsigned char)2, WTF::EmptyLockHooks<unsigned char>>::lockSlow(WTF::Atomic<unsigned char>&) + 216
+4   WebCore                       	       0x1a8d81ce4 _WebThreadLock() + 280
+5   WebCore                       	       0x1a8d85c2c WebRunLoopLock(__CFRunLoopObserver*, unsigned long, void*) + 48
+6   CoreFoundation                	       0x197daf234 __CFRUNLOOP_IS_CALLING_OUT_TO_AN_OBSERVER_CALLBACK_FUNCTION__ + 36
+7   CoreFoundation                	       0x197d39410 __CFRunLoopDoObservers + 532
+8   CoreFoundation                	       0x197d99444 __CFRunLoopRun + 1708
+9   CoreFoundation                	       0x197d9e3ec CFRunLoopRunSpecific + 612
+10  WebCore                       	       0x1a8d85884 RunWebThread(void*) + 760
+11  libsystem_pthread.dylib       	       0x1f7aad6b8 _pthread_start + 148
+12  libsystem_pthread.dylib       	       0x1f7aacb88 thread_start + 8
+
+Thread 3 name:  LocalStorage
+Thread 3:
+0   libsystem_kernel.dylib        	       0x1d6c64558 __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x1f7ab4078 _pthread_cond_wait + 1232
+2   JavaScriptCore                	       0x1ab4a1a10 WTF::ParkingLot::parkConditionallyImpl(void const*, WTF::ScopedLambda<bool ()> const&, WTF::ScopedLambda<void ()> const&, WTF::TimeWithDynamicClockType const&) + 2220
+3   WebKitLegacy                  	       0x1e123c7a0 WebCore::StorageThread::threadEntryPoint() + 464
+4   JavaScriptCore                	       0x1ab4c649c WTF::Thread::entryPoint(WTF::Thread::NewThreadContext*) + 352
+5   JavaScriptCore                	       0x1ab4c8d8c WTF::wtfThreadEntryPoint(void*) + 16
+6   libsystem_pthread.dylib       	       0x1f7aad6b8 _pthread_start + 148
+7   libsystem_pthread.dylib       	       0x1f7aacb88 thread_start + 8
+
+Thread 4 name:  com.apple.CFStream.LegacyThread
+Thread 4:
+0   libsystem_kernel.dylib        	       0x1d6c63c84 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x1d6c76b54 mach_msg2_internal + 80
+2   libsystem_kernel.dylib        	       0x1d6c76e2c mach_msg_overwrite + 540
+3   libsystem_kernel.dylib        	       0x1d6c641c8 mach_msg + 24
+4   CoreFoundation                	       0x197d98024 __CFRunLoopServiceMachPort + 160
+5   CoreFoundation                	       0x197d99250 __CFRunLoopRun + 1208
+6   CoreFoundation                	       0x197d9e3ec CFRunLoopRunSpecific + 612
+7   CoreFoundation                	       0x197e25660 _legacyStreamRunLoop_workThread + 300
+8   libsystem_pthread.dylib       	       0x1f7aad6b8 _pthread_start + 148
+9   libsystem_pthread.dylib       	       0x1f7aacb88 thread_start + 8
+
+Thread 5 name:  com.apple.NSURLConnectionLoader
+Thread 5:
+0   libsystem_kernel.dylib        	       0x1d6c63c84 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x1d6c76b54 mach_msg2_internal + 80
+2   libsystem_kernel.dylib        	       0x1d6c76e2c mach_msg_overwrite + 540
+3   libsystem_kernel.dylib        	       0x1d6c641c8 mach_msg + 24
+4   CoreFoundation                	       0x197d98024 __CFRunLoopServiceMachPort + 160
+5   CoreFoundation                	       0x197d99250 __CFRunLoopRun + 1208
+6   CoreFoundation                	       0x197d9e3ec CFRunLoopRunSpecific + 612
+7   CFNetwork                     	       0x198f89580 0x198d30000 + 2463104
+8   Foundation                    	       0x192040544 __NSThread__start__ + 716
+9   libsystem_pthread.dylib       	       0x1f7aad6b8 _pthread_start + 148
+10  libsystem_pthread.dylib       	       0x1f7aacb88 thread_start + 8
+
+Thread 6 name:  WebCore: AsyncFileStream
+Thread 6:
+0   libsystem_kernel.dylib        	       0x1d6c64558 __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x1f7ab4078 _pthread_cond_wait + 1232
+2   JavaScriptCore                	       0x1ab4a1a10 WTF::ParkingLot::parkConditionallyImpl(void const*, WTF::ScopedLambda<bool ()> const&, WTF::ScopedLambda<void ()> const&, WTF::TimeWithDynamicClockType const&) + 2220
+3   WebCore                       	       0x1a962ae1c WTF::Detail::CallableWrapper<WebCore::callOnFileThread(WTF::Function<void ()>&&)::$_22::operator()() const::'lambda'(), void>::call() + 368
+4   JavaScriptCore                	       0x1ab4c649c WTF::Thread::entryPoint(WTF::Thread::NewThreadContext*) + 352
+5   JavaScriptCore                	       0x1ab4c8d8c WTF::wtfThreadEntryPoint(void*) + 16
+6   libsystem_pthread.dylib       	       0x1f7aad6b8 _pthread_start + 148
+7   libsystem_pthread.dylib       	       0x1f7aacb88 thread_start + 8
+
+Thread 7 name:  JavaScriptCore libpas scavenger
+Thread 7:
+0   libsystem_kernel.dylib        	       0x1d6c64558 __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x1f7ab4078 _pthread_cond_wait + 1232
+2   JavaScriptCore                	       0x1ab5678ac scavenger_thread_main + 1428
+3   libsystem_pthread.dylib       	       0x1f7aad6b8 _pthread_start + 148
+4   libsystem_pthread.dylib       	       0x1f7aacb88 thread_start + 8
+
+Thread 8:
+0   libsystem_pthread.dylib       	       0x1f7aacb74 start_wqthread + 0
+
+Thread 9:
+0   libsystem_pthread.dylib       	       0x1f7aacb74 start_wqthread + 0
+
+Thread 10:
+0   libsystem_pthread.dylib       	       0x1f7aacb74 start_wqthread + 0
+
+Thread 11 name:  Heap Helper Thread
+Thread 11:
+0   libsystem_kernel.dylib        	       0x1d6c64558 __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x1f7ab4078 _pthread_cond_wait + 1232
+2   JavaScriptCore                	       0x1ab4a193c WTF::ParkingLot::parkConditionallyImpl(void const*, WTF::ScopedLambda<bool ()> const&, WTF::ScopedLambda<void ()> const&, WTF::TimeWithDynamicClockType const&) + 2008
+3   JavaScriptCore                	       0x1ab461d54 WTF::Detail::CallableWrapper<WTF::AutomaticThread::start(WTF::AbstractLocker const&)::$_0, void>::call() + 440
+4   JavaScriptCore                	       0x1ab4c649c WTF::Thread::entryPoint(WTF::Thread::NewThreadContext*) + 352
+5   JavaScriptCore                	       0x1ab4c8d8c WTF::wtfThreadEntryPoint(void*) + 16
+6   libsystem_pthread.dylib       	       0x1f7aad6b8 _pthread_start + 148
+7   libsystem_pthread.dylib       	       0x1f7aacb88 thread_start + 8
+
+Thread 12 name:  Heap Helper Thread
+Thread 12:
+0   libsystem_kernel.dylib        	       0x1d6c64558 __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x1f7ab4078 _pthread_cond_wait + 1232
+2   JavaScriptCore                	       0x1ab4a193c WTF::ParkingLot::parkConditionallyImpl(void const*, WTF::ScopedLambda<bool ()> const&, WTF::ScopedLambda<void ()> const&, WTF::TimeWithDynamicClockType const&) + 2008
+3   JavaScriptCore                	       0x1ab461d54 WTF::Detail::CallableWrapper<WTF::AutomaticThread::start(WTF::AbstractLocker const&)::$_0, void>::call() + 440
+4   JavaScriptCore                	       0x1ab4c649c WTF::Thread::entryPoint(WTF::Thread::NewThreadContext*) + 352
+5   JavaScriptCore                	       0x1ab4c8d8c WTF::wtfThreadEntryPoint(void*) + 16
+6   libsystem_pthread.dylib       	       0x1f7aad6b8 _pthread_start + 148
+7   libsystem_pthread.dylib       	       0x1f7aacb88 thread_start + 8
+
+Thread 13 name:  Heap Helper Thread
+Thread 13:
+0   libsystem_kernel.dylib        	       0x1d6c64558 __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x1f7ab4078 _pthread_cond_wait + 1232
+2   JavaScriptCore                	       0x1ab4a193c WTF::ParkingLot::parkConditionallyImpl(void const*, WTF::ScopedLambda<bool ()> const&, WTF::ScopedLambda<void ()> const&, WTF::TimeWithDynamicClockType const&) + 2008
+3   JavaScriptCore                	       0x1ab461d54 WTF::Detail::CallableWrapper<WTF::AutomaticThread::start(WTF::AbstractLocker const&)::$_0, void>::call() + 440
+4   JavaScriptCore                	       0x1ab4c649c WTF::Thread::entryPoint(WTF::Thread::NewThreadContext*) + 352
+5   JavaScriptCore                	       0x1ab4c8d8c WTF::wtfThreadEntryPoint(void*) + 16
+6   libsystem_pthread.dylib       	       0x1f7aad6b8 _pthread_start + 148
+7   libsystem_pthread.dylib       	       0x1f7aacb88 thread_start + 8
+
+Thread 14 name:  Heap Helper Thread
+Thread 14:
+0   libsystem_kernel.dylib        	       0x1d6c64558 __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x1f7ab4078 _pthread_cond_wait + 1232
+2   JavaScriptCore                	       0x1ab4a193c WTF::ParkingLot::parkConditionallyImpl(void const*, WTF::ScopedLambda<bool ()> const&, WTF::ScopedLambda<void ()> const&, WTF::TimeWithDynamicClockType const&) + 2008
+3   JavaScriptCore                	       0x1ab461d54 WTF::Detail::CallableWrapper<WTF::AutomaticThread::start(WTF::AbstractLocker const&)::$_0, void>::call() + 440
+4   JavaScriptCore                	       0x1ab4c649c WTF::Thread::entryPoint(WTF::Thread::NewThreadContext*) + 352
+5   JavaScriptCore                	       0x1ab4c8d8c WTF::wtfThreadEntryPoint(void*) + 16
+6   libsystem_pthread.dylib       	       0x1f7aad6b8 _pthread_start + 148
+7   libsystem_pthread.dylib       	       0x1f7aacb88 thread_start + 8
+
+Thread 15 name:  Heap Helper Thread
+Thread 15:
+0   libsystem_kernel.dylib        	       0x1d6c64558 __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x1f7ab4078 _pthread_cond_wait + 1232
+2   JavaScriptCore                	       0x1ab4a193c WTF::ParkingLot::parkConditionallyImpl(void const*, WTF::ScopedLambda<bool ()> const&, WTF::ScopedLambda<void ()> const&, WTF::TimeWithDynamicClockType const&) + 2008
+3   JavaScriptCore                	       0x1ab461d54 WTF::Detail::CallableWrapper<WTF::AutomaticThread::start(WTF::AbstractLocker const&)::$_0, void>::call() + 440
+4   JavaScriptCore                	       0x1ab4c649c WTF::Thread::entryPoint(WTF::Thread::NewThreadContext*) + 352
+5   JavaScriptCore                	       0x1ab4c8d8c WTF::wtfThreadEntryPoint(void*) + 16
+6   libsystem_pthread.dylib       	       0x1f7aad6b8 _pthread_start + 148
+7   libsystem_pthread.dylib       	       0x1f7aacb88 thread_start + 8
+
+
+Thread 0 crashed with ARM Thread State (64-bit):
+    x0: 0x000000016f365708   x1: 0x000000016f3656f0   x2: 0x0000000000000020   x3: 0x00000000626e6720
+    x4: 0x000000016f365938   x5: 0x00000000676a7220   x6: 0x0000000067757220   x7: 0x00000000c6000000
+    x8: 0x0000000280616370   x9: 0x0000000000001ec0  x10: 0x000000016f3637d0  x11: 0x000000016f364000
+   x12: 0x0000000000000001  x13: 0x0000000000ac527f  x14: 0x00000000204b5254  x15: 0x0000000054524b20
+   x16: 0x00000001f7aacb8c  x17: 0xd44e00016f3655c8  x18: 0x0000000000000000  x19: 0x000000016f365b00
+   x20: 0x000000016f365a80  x21: 0x0000000000000001  x22: 0x454e472000000019  x23: 0x000000016f365728
+   x24: 0x0000000000000000  x25: 0x0000000000000020  x26: 0x0000000000000020  x27: 0x000000016f365988
+   x28: 0x0000000000000000   fp: 0x000000016f3656e0   lr: 0x00000001995ee2d8
+    sp: 0x000000016f365690   pc: 0x00000001f7aacbc8 cpsr: 0x80001000
+   far: 0x000000016f363ff8  esr: 0x92000007 (Data Abort) byte read Translation fault
+
+Binary Images:
+       0x1009a0000 -        0x100ad7fff Planon Live arm64  <7ece4477c04c32c7bd0208a63a5c4567> /private/var/containers/Bundle/Application/6635E9E4-D50F-4201-92E3-2C49FFC64C26/Planon Live.app/Planon Live
+       0x100ca4000 -        0x100cb3fff FBLPromises arm64  <264cc0674f5c3329bebf4bbf6146f270> /private/var/containers/Bundle/Application/6635E9E4-D50F-4201-92E3-2C49FFC64C26/Planon Live.app/Frameworks/FBLPromises.framework/FBLPromises
+       0x100d90000 -        0x100d9ffff FirebaseCore arm64  <eb528393bc563ca1a5d57096614308fe> /private/var/containers/Bundle/Application/6635E9E4-D50F-4201-92E3-2C49FFC64C26/Planon Live.app/Frameworks/FirebaseCore.framework/FirebaseCore
+       0x100c88000 -        0x100c8ffff FirebaseCoreDiagnostics arm64  <a548d1a0a20b3417bd9bd3f444dc0d8f> /private/var/containers/Bundle/Application/6635E9E4-D50F-4201-92E3-2C49FFC64C26/Planon Live.app/Frameworks/FirebaseCoreDiagnostics.framework/FirebaseCoreDiagnostics
+       0x100e10000 -        0x100e27fff FirebaseInstallations arm64  <4531d962ea7639ca9117f70a5613e6fa> /private/var/containers/Bundle/Application/6635E9E4-D50F-4201-92E3-2C49FFC64C26/Planon Live.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations
+       0x100ee8000 -        0x100f1bfff FirebaseMessaging arm64  <0d0ba2ec2d1e35d197c26b446a2ddd53> /private/var/containers/Bundle/Application/6635E9E4-D50F-4201-92E3-2C49FFC64C26/Planon Live.app/Frameworks/FirebaseMessaging.framework/FirebaseMessaging
+       0x100f74000 -        0x100f97fff GoogleDataTransport arm64  <d2b8a6eee4f83adaaabaa22b9693f2a6> /private/var/containers/Bundle/Application/6635E9E4-D50F-4201-92E3-2C49FFC64C26/Planon Live.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport
+       0x100fdc000 -        0x100ff7fff GoogleUtilities arm64  <7de2ae1ae587393dbf2e7d926553067a> /private/var/containers/Bundle/Application/6635E9E4-D50F-4201-92E3-2C49FFC64C26/Planon Live.app/Frameworks/GoogleUtilities.framework/GoogleUtilities
+       0x100cd8000 -        0x100cdffff nanopb arm64  <d675dc70a8ea3ed1be8a651f8e4f57c4> /private/var/containers/Bundle/Application/6635E9E4-D50F-4201-92E3-2C49FFC64C26/Planon Live.app/Frameworks/nanopb.framework/nanopb
+       0x100c0c000 -        0x100c17fff libobjc-trampolines.dylib arm64e  <695a8449aae838b6851cced0b1176f03> /private/preboot/Cryptexes/OS/usr/lib/libobjc-trampolines.dylib
+       0x1f7aac000 -        0x1f7ab7ff3 libsystem_pthread.dylib arm64e  <56698309210a313797d414e4604b1117> /usr/lib/system/libsystem_pthread.dylib
+       0x1995bd000 -        0x199781fff CoreText arm64e  <c59d7466d0d23dbba15bc5a4a149c2e0> /System/Library/Frameworks/CoreText.framework/CoreText
+       0x1a8096000 -        0x1aa852fff WebCore arm64e  <157f515d054a3a58a27c69377a52288f> /System/Library/PrivateFrameworks/WebCore.framework/WebCore
+       0x1e120b000 -        0x1e13b5fff WebKitLegacy arm64e  <238e93c88d64388cb6780bec90b61671> /System/Library/PrivateFrameworks/WebKitLegacy.framework/WebKitLegacy
+       0x199d8e000 -        0x19b5b2fff UIKitCore arm64e  <b3834960244b34e49ea0ca4bb44ef0f3> /System/Library/PrivateFrameworks/UIKitCore.framework/UIKitCore
+       0x197d1f000 -        0x198106fff CoreFoundation arm64e  <4230c12242e8383bbeecee7b61f8bb61> /System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
+       0x1d6c63000 -        0x1d6c9aff7 libsystem_kernel.dylib arm64e  <75da6452934e3f80b181d47074378e83> /usr/lib/system/libsystem_kernel.dylib
+       0x191fe5000 -        0x1928c2fff Foundation arm64e  <6e76dc9611af3b2eb71e215f9cc6e822> /System/Library/Frameworks/Foundation.framework/Foundation
+       0x1ab454000 -        0x1acb52fff JavaScriptCore arm64e  <c9852269bf5a3150afed2d50892b6d4b> /System/Library/Frameworks/JavaScriptCore.framework/JavaScriptCore
+       0x198d30000 -        0x1990fbfff CFNetwork arm64e  <6aafe7c4f1c43020ad1670591c86d7b0> /System/Library/Frameworks/CFNetwork.framework/CFNetwork
+               0x0 - 0xffffffffffffffff ??? unknown-arch  <00000000000000000000000000000000> ???
+
+EOF
+
